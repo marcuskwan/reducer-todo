@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from "./components/Form"
+import Todos from "./components/Todos"
 import './App.css';
 
 function App() {

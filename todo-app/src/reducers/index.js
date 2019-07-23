@@ -1,17 +1,30 @@
+// const uuidv4 = require("uuid/v4");
+export const ADD_TODO = "ADD_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
+export const CLEAR_TODOS = "CLEAR_TODOS";
 
-
-const initialState = {
-    todos: [{
-        item: 'Learn about reducers',
-        completed: false,
-        id:
-    }]
-}
+export const initialState = {
+  todos: [
+    {
+      task: "Learn about reducers",
+      completed: false,
+      id: Date.now(),
+    },
+  ],
+};
 
 export const reducer = (state, action) => {
-    switch (action.type) {
-
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case ADD_TODO:
+      const newTodo = {
+        task: action.payload,
+        completed: false,
+        id: Date.now(),
+      };
+      return {
+        todos: [...state.todos, newTodo],
+      };
+    default:
+      return state;
+  }
+};
