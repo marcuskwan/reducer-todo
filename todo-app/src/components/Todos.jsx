@@ -1,18 +1,12 @@
-import React, { useReducer } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Todo from "./Todo";
-import { initialState, reducer, CLEAR_TODOS } from "../reducers";
 
-function Todos() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const clearTodos = event => {
-    event.preventDefault();
-    dispatch({ type: CLEAR_TODOS });
-  };
+function Todos({state,toggleTodo,clearTodos}) {
   return (
     <div>
       {state.todos.map(todo => (
-        <Todo key={todo.id} task={todo.task} id={todo.id} />
+        <Todo key={todo.id} task={todo.task} id={todo.id} toggleTodo={toggleTodo}/>
       ))}
       <button onClick={clearTodos}>clear</button>
     </div>

@@ -21,6 +21,7 @@ export const reducer = (state, action) => {
         completed: false,
         id: Date.now(),
       };
+      console.log(newTodo)
       return {
         todos: [...state.todos, newTodo],
       };
